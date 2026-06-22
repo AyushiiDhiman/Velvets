@@ -1,0 +1,111 @@
+.playlist-page {
+  min-height: 100vh;
+}
+
+.playlist-hero {
+  padding: 40px 40px 48px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.75);
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-emoji {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.hero-content p {
+  font-size: 15px;
+  color: var(--text-mid);
+}
+
+.create-playlist-btn {
+  flex-shrink: 0;
+}
+
+.songs-section {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.playlist-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 16px;
+  color: var(--text-light);
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.loading-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--rose);
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .playlist-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 56px 24px 32px;
+  }
+  .songs-section { padding: 24px; }
+  .songs-grid { grid-template-columns: repeat(2, 1fr); }
+}

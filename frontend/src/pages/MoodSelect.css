@@ -1,0 +1,116 @@
+.mood-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+.mood-hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.mood-hero h1 {
+  font-size: 42px;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.mood-hero h1 span {
+  background: linear-gradient(135deg, var(--deep-rose), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mood-hero p {
+  color: var(--text-light);
+  font-size: 17px;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mood-card {
+  background: var(--mood-color, var(--blush));
+  border: none;
+  border-radius: 20px;
+  padding: 36px 28px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mood-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.mood-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.mood-card:hover::before {
+  transform: scale(2);
+}
+
+.mood-emoji {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.mood-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.mood-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.4;
+}
+
+.mood-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-size: 20px;
+  color: var(--text-mid);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.mood-card:hover .mood-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mood-hero h1 { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --blush: #F9E4EC;
+  --rose: #E8A0BF;
+  --rose-gold: #C9848A;
+  --deep-rose: #A0526A;
+  --pink-soft: #FDF0F5;
+  --pink-mid: #F2C4D8;
+  --gold: #D4A574;
+  --cream: #FEF9F0;
+  --text-dark: #3D1A24;
+  --text-mid: #7A4A58;
+  --text-light: #B8849A;
+  --white: #FFFFFF;
+  --shadow: 0 4px 24px rgba(160, 82, 106, 0.12);
+  --shadow-hover: 0 8px 32px rgba(160, 82, 106, 0.22);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--pink-soft);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--deep-rose);
+  border: 2px solid var(--rose);
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--blush);
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+input, textarea {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Loading screen */
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pink-soft);
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--pink-mid);
+  border-top-color: var(--deep-rose);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--blush); }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
