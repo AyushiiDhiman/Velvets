@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <span className="brand-icon">ðŸŽµ</span>
+        <span className="brand-icon">♫</span>
         <span className="brand-name">Velvets</span>
       </div>
       <div className="navbar-links">
@@ -36,4 +36,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
