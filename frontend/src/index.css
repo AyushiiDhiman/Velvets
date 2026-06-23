@@ -115,3 +115,38 @@ input, textarea {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--blush); }
 ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
+
+/* ===========================
+   VELVETS — RESPONSIVE PATCH
+   =========================== */
+
+@media (max-width: 768px) {
+  .navbar { padding: 12px 20px; flex-wrap: wrap; gap: 10px; }
+  .navbar-links { order: 3; width: 100%; justify-content: center; gap: 4px; border-top: 1px solid var(--pink-mid); padding-top: 10px; }
+  .nav-link { padding: 7px 14px; font-size: 13px; }
+  .user-greeting { display: none; }
+  .library-page { padding: 32px 20px; }
+  .library-header h1 { font-size: 28px; }
+  .tab-btn { padding: 8px 14px; font-size: 13px; }
+  .mood-page { padding: 40px 20px; }
+  .mood-card { padding: 28px 20px; }
+  .book-page { padding: 40px 20px; }
+  .book-card-category { padding: 32px 24px; }
+  .ai-picks-section { padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  .nav-link { padding: 6px 10px; font-size: 12px; }
+  .auth-card { padding: 36px 24px; margin: 0 16px; }
+  .auth-header h1 { font-size: 26px; }
+  .library-page { padding: 24px 16px; }
+  .library-song-row { gap: 10px; padding: 10px 12px; }
+  .lib-song-cover { width: 40px; height: 40px; }
+  .playlist-card-header { padding: 16px; }
+  .hero-content h1, .book-hero-content h1 { font-size: 28px; }
+  .hero-emoji, .book-hero-emoji { font-size: 40px; }
+  .songs-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .modal-card { max-width: 90vw; padding: 32px 24px; margin: 0 16px; }
+  .player-card { max-width: 90vw; padding: 20px; margin: 0 16px; }
+}
