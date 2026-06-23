@@ -1,4 +1,4 @@
-const router = require('express').Router();
+﻿const router = require('express').Router();
 const youtubeSearchApi = require('youtube-search-api');
 const User = require('../models/User');
 const auth = require('../middleware/auth');
@@ -6,34 +6,34 @@ const auth = require('../middleware/auth');
 // Bollywood + Hollywood mood search queries
 const moodQueries = {
   happy: [
-    'best happy bollywood songs',
-    'upbeat hindi party songs',
-    'happy english pop songs',
+    'Taylor Swift Anti Hero Cruel Summer 2024',
+    'best punjabi party songs 2024 diljit dosanjh',
+    'Ariana Grande happy pop hits 2024',
   ],
   sad: [
-    'sad bollywood songs hindi',
-    'emotional heartbreak hindi songs',
-    'sad english acoustic songs',
+    'Arijit Singh sad songs 2024 hindi',
+    'Olivia Rodrigo sad songs 2024',
+    'best heartbreak bollywood songs 2023 2024',
   ],
   cherished: [
-    'bollywood romantic love songs hindi',
-    'best romantic hindi songs',
-    'romantic english love songs',
+    'Shubh punjabi love songs 2024',
+    'Taylor Swift love songs Lover Fearless',
+    'best romantic bollywood songs 2024 arijit',
   ],
   broken: [
-    'breakup bollywood songs hindi',
-    'heartbreak hindi songs',
-    'breakup english sad songs',
+    'breakup songs hindi 2024 jubin nautiyal',
+    'Olivia Rodrigo drivers license good 4 u',
+    'best punjabi sad breakup songs 2024',
   ],
   focused: [
-    'study music lo-fi beats',
-    'focus music instrumental',
-    'concentration bollywood instrumental',
+    'lofi hip hop study beats 2024',
+    'bollywood instrumental focus music 2024',
+    'A R Rahman peaceful instrumental music',
   ],
   motivation: [
-    'motivational bollywood songs hindi',
-    'pump up hindi songs',
-    'motivational english songs workout',
+    'Diljit Dosanjh pump up punjabi songs 2024',
+    'best workout motivation english songs 2024',
+    'motivational bollywood hits 2023 2024',
   ],
 };
 
@@ -82,7 +82,7 @@ router.get('/mood/:mood', async (req, res) => {
     });
 
     tracks = shuffle(tracks).slice(0, 24);
-    console.log(`✅ Found ${tracks.length} songs for mood: ${mood}`);
+    console.log(`âœ… Found ${tracks.length} songs for mood: ${mood}`);
     res.json(tracks);
   } catch (err) {
     console.error('YouTube search error:', err.message || err);
