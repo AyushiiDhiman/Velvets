@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <span className="brand-icon">🎵</span>
+        <span className="brand-icon">ðŸŽµ</span>
         <span className="brand-name">Velvets</span>
       </div>
       <div className="navbar-links">
@@ -26,6 +26,7 @@ const Navbar = () => {
   <Link to="/books" className={location.pathname.includes('/books') ? 'nav-link active' : 'nav-link'}>
     Books
   </Link>
+  <Link to="/search" className={location.pathname === '/search' ? 'nav-link active' : 'nav-link'}>Search</Link>
   <Link to="/library" className={location.pathname === '/library' ? 'nav-link active' : 'nav-link'}>
     My Library
   </Link>
@@ -35,3 +36,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

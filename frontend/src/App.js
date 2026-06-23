@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,7 @@ import Playlist from './pages/Playlist';
 import Library from './pages/Library';
 import BookSelect from './pages/BookSelect';
 import BookPlaylist from './pages/BookPlaylist';
+import Search from './pages/Search';
 import Navbar from './components/Navbar';
 
 const ProtectedRoute = ({ children }) => {
@@ -30,6 +31,7 @@ function AppRoutes() {
   <Route path="/register" element={user ? <Navigate to="/mood" /> : <Register />} />
   <Route path="/mood" element={<ProtectedRoute><MoodSelect /></ProtectedRoute>} />
   <Route path="/playlist/:mood" element={<ProtectedRoute><Playlist /></ProtectedRoute>} />
+  <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
   <Route path="/library" element={<ProtectedRoute><Library /></ProtectedRoute>} />
   <Route path="/books" element={<ProtectedRoute><BookSelect /></ProtectedRoute>} />
   <Route path="/books/:category" element={<ProtectedRoute><BookPlaylist /></ProtectedRoute>} />
@@ -57,3 +59,4 @@ function App() {
 }
 
 export default App;
+
