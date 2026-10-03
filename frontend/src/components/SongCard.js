@@ -16,7 +16,8 @@ const SongCard = ({ song, likedSongs = [], savedSongs = [], onLike, onSave, onAd
       const { data } = await axios.post('/api/playlists/like', { songId: song.id });
       onLike && onLike(data.likedSongs);
       toast.success(data.likedSongs.includes(song.id) ? '❤️ Liked!' : '💔 Unliked');
-    } catch {
+    } catch (err) {
+      console.error('Like error:', err.response?.status, err.response?.data || err.message);
       toast.error('Please log in to like songs');
     }
   };
@@ -26,7 +27,8 @@ const SongCard = ({ song, likedSongs = [], savedSongs = [], onLike, onSave, onAd
       const { data } = await axios.post('/api/playlists/save', { song });
       onSave && onSave(data.savedSongs);
       toast.success(data.savedSongs.some(s => s.id === song.id) ? '📌 Saved!' : 'Removed from saved');
-    } catch {
+    } catch (err) {
+      console.error('Save error:', err.response?.status, err.response?.data || err.message);
       toast.error('Please log in to save songs');
     }
   };

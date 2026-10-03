@@ -7,7 +7,8 @@ router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('playlists likedSongs savedSongs');
     res.json(user);
-  } catch {
+  } catch (err) {
+    console.error('Get playlists error:', err.message || err);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -20,7 +21,8 @@ router.post('/create', auth, async (req, res) => {
     user.playlists.push({ name, mood, songs: songs || [] });
     await user.save();
     res.json(user.playlists);
-  } catch {
+  } catch (err) {
+    console.error('Create playlist error:', err.message || err);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -34,7 +36,8 @@ router.post('/:playlistId/add-song', auth, async (req, res) => {
     playlist.songs.push(req.body.song);
     await user.save();
     res.json(playlist);
-  } catch {
+  } catch (err) {
+    console.error('Add song to playlist error:', err.message || err);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -49,7 +52,8 @@ router.post('/like', auth, async (req, res) => {
     else user.likedSongs.push(songId);
     await user.save();
     res.json({ likedSongs: user.likedSongs });
-  } catch {
+  } catch (err) {
+    console.error('Like song error:', err.message || err);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -67,7 +71,8 @@ router.post('/save', auth, async (req, res) => {
     }
     await user.save();
     res.json({ savedSongs: user.savedSongs });
-  } catch {
+  } catch (err) {
+    console.error('Save song error:', err.message || err);
     res.status(500).json({ message: 'Server error' });
   }
 });

@@ -7,7 +7,7 @@ const CreatePlaylistModal = ({ mood, songToAdd, onClose, onCreated }) => {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleCreate = async () => {
+   const handleCreate = async () => {
     if (!name.trim()) return toast.error('Give your playlist a name!');
     setLoading(true);
     try {
@@ -19,7 +19,8 @@ const CreatePlaylistModal = ({ mood, songToAdd, onClose, onCreated }) => {
       toast.success(`🎵 "${name}" created!`);
       onCreated && onCreated(data);
       onClose();
-    } catch {
+    } catch (err) {
+      console.error('Create playlist error:', err);
       toast.error('Could not create playlist');
     } finally {
       setLoading(false);

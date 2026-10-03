@@ -116,9 +116,7 @@ input, textarea {
 ::-webkit-scrollbar-track { background: var(--blush); }
 ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 10px; }
 
-/* ===========================
-   VELVETS — RESPONSIVE PATCH
-   =========================== */
+
 
 @media (max-width: 768px) {
   .navbar { padding: 12px 20px; flex-wrap: wrap; gap: 10px; }

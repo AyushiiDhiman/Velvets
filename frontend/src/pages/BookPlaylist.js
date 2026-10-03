@@ -27,19 +27,24 @@ const BookPlaylist = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       setLoading(true);
+
       try {
-        const [booksRes, userRes] = await Promise.all([
-          axios.get(`/api/books/category/${category}`),
-          axios.get('/api/playlists')
-        ]);
+        const booksRes = await axios.get(`/api/books/category/${category}`);
         setBooks(booksRes.data);
+      } catch (err) {
+        toast.error('Could not load books');
+      }
+
+      try {
+        const userRes = await axios.get('/api/playlists');
         setLikedBooks(userRes.data.likedBooks || []);
         setSavedBooks(userRes.data.savedBooks || []);
       } catch (err) {
-        toast.error('Could not load books');
-      } finally {
-        setLoading(false);
+        // don't block the books grid just because this failed
+        console.error('Could not load liked/saved books:', err.response?.data || err.message);
       }
+
+      setLoading(false);
     };
     fetchBooks();
   }, [category]);

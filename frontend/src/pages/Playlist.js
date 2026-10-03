@@ -30,19 +30,24 @@ const Playlist = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+
       try {
-        const [songsRes, userRes] = await Promise.all([
-          axios.get(`/api/songs/mood/${mood}`),
-          axios.get('/api/playlists')
-        ]);
+        const songsRes = await axios.get(`/api/songs/mood/${mood}`);
         setSongs(songsRes.data);
+      } catch (err) {
+        toast.error('Could not load playlist');
+      }
+
+      try {
+        const userRes = await axios.get('/api/playlists');
         setLikedSongs(userRes.data.likedSongs || []);
         setSavedSongs(userRes.data.savedSongs || []);
-      } catch {
-        toast.error('Could not load playlist');
-      } finally {
-        setLoading(false);
+      } catch (err) {
+        // don't block the songs grid just because this failed
+        console.error('Could not load liked/saved songs:', err.response?.data || err.message);
       }
+
+      setLoading(false);
     };
     fetchData();
   }, [mood]);
